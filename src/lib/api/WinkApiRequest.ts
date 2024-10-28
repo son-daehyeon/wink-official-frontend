@@ -2,6 +2,8 @@ import { LoginResponse, UserResponse } from '@/lib/api/types';
 import { useGlobalState } from '@/lib/store/global.store';
 import { useUserStore } from '@/lib/store/user.store';
 
+import { toast } from 'sonner';
+
 interface WinkRawApiResponse<T> {
   code: number;
   error: string;

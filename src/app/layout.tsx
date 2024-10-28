@@ -1,5 +1,7 @@
 'use client';
 
+import { Toaster } from '@/components/ui/sonner';
+
 import './globals.css';
 
 interface RootLayoutProps {
@@ -14,7 +16,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      <body>
+        <main>{children}</main>
+        <Toaster position="top-right" richColors={true} duration={3000} closeButton={true} />
+      </body>
     </html>
   );
 }
