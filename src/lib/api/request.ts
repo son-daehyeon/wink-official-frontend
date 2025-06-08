@@ -79,7 +79,10 @@ export default class WinkRequest {
       });
     }
 
-    if (url === '/auth/me' && response.error === '인증에 실패하였습니다.') {
+    if (
+      url === '/auth/me' &&
+      (response.error === '인증에 실패하였습니다.' || response.error === '권한이 없습니다.')
+    ) {
       this.removeToken();
       return null as T;
     }
