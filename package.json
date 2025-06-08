@@ -1,13 +1,11 @@
 {
-  "name": "wink-officia",
+  "name": "wink-official",
   "version": "1.0.0",
-  "license": "MIT",
   "scripts": {
     "prepare": "husky",
     "build": "next build",
-    "build:assets": "next build && mkdir -p .next/standalone/public/_next && cp -r .next/static .next/standalone/public/_next/",
     "start": "next start",
-    "start:dev": "next dev --turbo",
+    "dev": "next dev --turbo",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix"
   },

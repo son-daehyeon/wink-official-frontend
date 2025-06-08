@@ -5,7 +5,6 @@
  */
 const nextConfig = {
   reactStrictMode: false,
-  output: 'standalone',
   async rewrites() {
     return [
       {

@@ -28,7 +28,7 @@ export default function ProgramActivityPage() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
 
   const [activities, setActivities] = useState<Activity[]>([]);
-  const [selected, setselected] = useState<Activity>();
+  const [selected, setSelected] = useState<Activity>();
 
   useEffect(() => {
     if (!carouselApi) return;
@@ -37,9 +37,12 @@ export default function ProgramActivityPage() {
 
   useEffect(() => {
     (async () => {
-      const { activities } = await Api.Domain.Program.Activity.getActivities();
+      let { activities } = await Api.Domain.Program.Activity.getActivities();
+      activities = activities.sort(
+        (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+      );
       setActivities(activities);
-      setselected(activities[0]);
+      setSelected(activities[0]);
     })();
   }, []);
 
@@ -59,7 +62,7 @@ export default function ProgramActivityPage() {
                   width={250}
                   height={250}
                   quality={100}
-                  onClick={() => setselected(activity)}
+                  onClick={() => setSelected(activity)}
                   className={cn(
                     'w-[250px] sm:w-full sm:h-[250px] rounded-3xl object-cover cursor-pointer transition-all duration-300',
                     selected === activity

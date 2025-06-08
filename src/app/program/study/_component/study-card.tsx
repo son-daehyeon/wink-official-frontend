@@ -22,7 +22,7 @@ export default function StudyCard({ index, category, title, author, content, ima
         </div>
       </div>
 
-      <div className="flex items-center justify-center h-[125px] sm:h-[150px] min-w-[180px]">
+      <div className="flex items-center justify-center h-[125px] sm:h-[150px] min-w-[180px] sm:max-w-[180px]">
         {image ? (
           <Image
             src={image}
