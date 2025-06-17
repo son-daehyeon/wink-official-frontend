@@ -62,5 +62,3 @@ export default class Api {
     return Api.instance!;
   }
 }
-
-// 이전에 탈락한 사람 학번으로 해보기

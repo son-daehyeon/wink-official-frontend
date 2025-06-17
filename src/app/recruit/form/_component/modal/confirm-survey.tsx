@@ -54,7 +54,7 @@ export default function ConfirmSurveyModal({
                 });
 
                 router.push('/recruit');
-                clear();
+                setTimeout(clear, 500);
               },
               {
                 loading: '지원서를 제출하고 있습니다.',

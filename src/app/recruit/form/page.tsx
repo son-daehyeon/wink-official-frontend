@@ -75,7 +75,18 @@ const STEPS: ComponentType<RecruitStepProps>[] = [
 export default function RecruitApplicationPage() {
   const router = useRouter();
 
-  const { step, data, setStep, developer, setBack, modify, setData } = useRecruitStore();
+  const {
+    recruit: storedRecruit,
+    step,
+    data,
+    setStep,
+    developer,
+    setBack,
+    modify,
+    setData,
+    setRecruit: setStoredRecruit,
+    clear,
+  } = useRecruitStore();
 
   const [isApi, startApi] = useApi();
   const [isMoving, startMoving] = useApi();
@@ -151,17 +162,20 @@ export default function RecruitApplicationPage() {
   }, []);
 
   useEffect(() => {
+    if (!recruit) return;
+
+    if (recruit.id !== storedRecruit) clear();
+
+    setStoredRecruit(recruit.id);
+
     toast.info(
-      data
+      data && recruit.id === storedRecruit
         ? '이전에 작성하던 내용을 불러왔습니다.'
         : '페이지를 나갔다 와도 내용을 계속 작성할 수 있어요',
     );
-  }, []);
 
-  useEffect(() => {
-    if (!data) return;
-    form.reset(data);
-  }, []);
+    if (data && recruit.id === storedRecruit) form.reset(data);
+  }, [recruit]);
 
   useEffect(form.clearErrors, [step]);
 

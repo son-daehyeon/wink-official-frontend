@@ -6,6 +6,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 interface Data {
+  recruit?: string;
   confetti: boolean;
   step: number;
   data?: RecruitFormRequest;
@@ -17,6 +18,7 @@ interface Data {
 
 interface Action {
   clear: () => void;
+  setRecruit: (recruit: string | undefined) => void;
   setConfetti: (confetti: boolean) => void;
   setStep: (step: number) => void;
   setData: (data: RecruitFormRequest) => void;
@@ -27,6 +29,7 @@ interface Action {
 }
 
 const initialState: Data = {
+  recruit: undefined,
   confetti: false,
   step: 0,
   data: undefined,
@@ -41,6 +44,7 @@ export const useRecruitStore = create(
     (set) => ({
       ...initialState,
       clear: () => set({ ...initialState }),
+      setRecruit: (recruit) => set({ recruit }),
       setConfetti: (confetti) => set({ confetti }),
       setStep: (step) => set({ step }),
       setData: (data: RecruitFormRequest) => set({ data }),
