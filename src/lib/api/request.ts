@@ -40,60 +40,6 @@ export default class WinkRequest {
     useUserStore.getState().setUser(null);
   }
 
-  private async refresh(token: string): Promise<boolean> {
-    try {
-      const { accessToken, refreshToken } = await this.post<LoginResponse>('/auth/refresh-token', {
-        token,
-      });
-
-      await this.setToken(accessToken, refreshToken);
-
-      return true;
-    } catch (_) {
-      this.removeToken();
-
-      return false;
-    }
-  }
-
-  // ############################################################
-
-  private async request<T>(url: string, options: RequestInit): Promise<T> {
-    const response: ApiResponse<T> = await (
-      await fetch(`${this.baseUrl}/api${url}`, options)
-    ).json();
-
-    if (response.error === '엑세스 토큰이 만료되었습니다.') {
-      const token = this.refreshToken!;
-
-      this.removeToken();
-
-      if (!(await this.refresh(token))) return null as T;
-
-      const headers = options.headers as Headers;
-      headers.set('Authorization', `Bearer ${this.accessToken}`);
-
-      return this.request(url, {
-        ...options,
-        headers,
-      });
-    }
-
-    if (
-      url === '/auth/me' &&
-      (response.error === '인증에 실패하였습니다.' || response.error === '권한이 없습니다.')
-    ) {
-      this.removeToken();
-      return null as T;
-    }
-
-    if (response.error) {
-      throw new Error(response.error);
-    }
-
-    return response.content!;
-  }
-
   public async get<T>(url: string, options?: Record<string, unknown>): Promise<T> {
     return this.request(url, {
       method: 'GET',
@@ -101,6 +47,8 @@ export default class WinkRequest {
       ...options,
     });
   }
+
+  // ############################################################
 
   public async post<T>(url: string, body?: object | FormData): Promise<T> {
     return this.request(url, {
@@ -132,6 +80,59 @@ export default class WinkRequest {
       body: this.generateBody(body),
       headers: this.generateHeaders(body),
     });
+  }
+
+  private async refresh(token: string): Promise<boolean> {
+    try {
+      const { accessToken, refreshToken } = await this.post<LoginResponse>('/auth/refresh-token', {
+        token,
+      });
+
+      await this.setToken(accessToken, refreshToken);
+
+      return true;
+    } catch (_) {
+      this.removeToken();
+
+      return false;
+    }
+  }
+
+  private async request<T>(url: string, options: RequestInit): Promise<T> {
+    const response: ApiResponse<T> = await (
+      await fetch(`${this.baseUrl}/api${url}`, options)
+    ).json();
+
+    if (!response.success && response.error === '엑세스 토큰이 만료되었습니다.') {
+      const token = this.refreshToken!;
+
+      this.removeToken();
+
+      if (!(await this.refresh(token))) return null as T;
+
+      const headers = options.headers as Headers;
+      headers.set('Authorization', `Bearer ${this.accessToken}`);
+
+      return this.request(url, {
+        ...options,
+        headers,
+      });
+    }
+
+    if (
+      url === '/auth/me' &&
+      !response.success &&
+      (response.error === '인증에 실패하였습니다.' || response.error === '권한이 없습니다.')
+    ) {
+      this.removeToken();
+      return null as T;
+    }
+
+    if (!response.success) {
+      throw new Error(response.error!);
+    }
+
+    return response.content!;
   }
 
   // ############################################################

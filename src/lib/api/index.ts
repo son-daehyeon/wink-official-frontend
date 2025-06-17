@@ -1,8 +1,6 @@
 import AdminUser from '@/api/domain/$user';
 import Application from '@/api/domain/application';
 import Auth from '@/api/domain/auth';
-import AdminConference from '@/api/domain/conference/$conference';
-import Conference from '@/api/domain/conference/conference';
 import AdminActivity from '@/api/domain/program/$activity';
 import AdminHistory from '@/api/domain/program/$history';
 import AdminProject from '@/api/domain/program/$project';
@@ -42,20 +40,10 @@ export default class Api {
       Upload: new Upload(this.request),
     },
     Application: new Application(this.request),
-    Conference: new Conference(this.request),
-    AdminConference: new AdminConference(this.request),
   };
 
   private constructor() {
     Api.instance = this;
-  }
-
-  private static get Instance(): Api {
-    if (Api.instance === null) {
-      Api.instance = new Api();
-    }
-
-    return Api.instance!;
   }
 
   public static get Domain() {
@@ -65,4 +53,14 @@ export default class Api {
   public static get Request(): WinkRequest {
     return Api.Instance.request;
   }
+
+  private static get Instance(): Api {
+    if (Api.instance === null) {
+      Api.instance = new Api();
+    }
+
+    return Api.instance!;
+  }
 }
+
+// 이전에 탈락한 사람 학번으로 해보기
