@@ -7,7 +7,7 @@ const REQUEST_EXAMPLE = `{
 }`;
 
 const RESPONSE_EXAMPLE = `{
-  "statusCode": 200,
+  "success": true,
   "error": null,
   "content": {
     "user": {
