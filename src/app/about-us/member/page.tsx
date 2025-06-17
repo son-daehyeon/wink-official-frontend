@@ -5,13 +5,14 @@ import { useEffect, useMemo, useState } from 'react';
 import Cloud from '@/app/about-us/member/_component/cloud';
 import UserList from '@/app/about-us/member/_component/user-list';
 
-import { Separator } from '@/ui/separator';
+import { Separator } from '@/component/ui/separator';
 
 import Api from '@/api';
 import User, { Role } from '@/api/type/schema/user';
-import { useApi } from '@/api/useApi';
 
 import { useUserStore } from '@/store/user';
+
+import { useApi } from '@/hook/use-api';
 
 export default function AboutUsMemberPage() {
   const { user } = useUserStore();

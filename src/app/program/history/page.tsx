@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { FaCircle } from 'react-icons/fa';
 
 import Image from 'next/image';
 
@@ -10,10 +9,15 @@ import CreateHistoryModal from '@/app/program/history/_component/modal/create-hi
 import DeleteHistoryModal from '@/app/program/history/_component/modal/delete-history';
 import UpdateHistoryModal from '@/app/program/history/_component/modal/update-history';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/ui/accordion';
-import { Button } from '@/ui/button';
-import { Separator } from '@/ui/separator';
-import { Skeleton } from '@/ui/skeleton';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/component/ui/accordion';
+import { Button } from '@/component/ui/button';
+import { Separator } from '@/component/ui/separator';
+import { Skeleton } from '@/component/ui/skeleton';
 
 import Api from '@/api';
 import History from '@/api/type/schema/history';
@@ -21,11 +25,10 @@ import { isAdmin } from '@/api/type/schema/user';
 
 import { useUserStore } from '@/store/user';
 
-import { formatDate, toDate } from '@/util';
-
-import HistoryPreLoader from '@/component/pre-loader/history';
+import { formatDate, toDate } from '@/lib/util';
 
 import { Pencil, Trash2 } from 'lucide-react';
+import { FaCircle } from 'react-icons/fa';
 
 type HistoryWithDate = History & { date: Date };
 
@@ -83,8 +86,6 @@ export default function ProgramHistoryPage() {
 
   return (
     <>
-      <HistoryPreLoader histories={rawHistories} />
-
       <Title
         title="WINK, 우리들의 파도"
         subtitle="행사 / 세미나 / 대외 활동 기록을 년도 별로 볼 수 있습니다"

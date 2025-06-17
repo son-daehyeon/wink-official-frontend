@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/component/ui/avatar';
 
 import Project from '@/api/type/schema/project';
 import User, { isAdmin } from '@/api/type/schema/user';
 
-import { formatDate } from '@/util';
+import { formatDate } from '@/lib/util';
 
 import { Pencil, Trash2, UserIcon } from 'lucide-react';
 

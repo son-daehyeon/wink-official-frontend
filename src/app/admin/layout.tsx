@@ -16,7 +16,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from '@/ui/sidebar';
+} from '@/component/ui/sidebar';
 
 import AdminGuard from '@/guard/admin';
 

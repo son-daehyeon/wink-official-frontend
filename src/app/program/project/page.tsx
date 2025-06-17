@@ -9,16 +9,17 @@ import DeleteProjectModal from '@/app/program/project/_component/modal/delete-pr
 import UpdateProjectModal from '@/app/program/project/_component/modal/update-project';
 import ProjectCard from '@/app/program/project/_component/project-card';
 
-import { Button } from '@/ui/button';
-import { Skeleton } from '@/ui/skeleton';
+import { Button } from '@/component/ui/button';
+import { Skeleton } from '@/component/ui/skeleton';
 
 import Api from '@/api';
 import Page from '@/api/type/schema/page';
 import Project from '@/api/type/schema/project';
 import { isAdmin } from '@/api/type/schema/user';
-import { useApi } from '@/api/useApi';
 
 import { useUserStore } from '@/store/user';
+
+import { useApi } from '@/hook/use-api';
 
 import { parseAsInteger, useQueryState } from 'nuqs';
 

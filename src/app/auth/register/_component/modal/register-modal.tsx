@@ -1,20 +1,34 @@
 import { useCallback } from 'react';
-import { useForm } from 'react-hook-form';
 
 import { useRouter } from 'next/navigation';
 
-import { Button } from '@/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/ui/dialog';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
+import { Button } from '@/component/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/component/ui/dialog';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
 
 import Api from '@/api';
 import { RegisterRequest, RegisterRequestSchema } from '@/api/type/domain/auth';
-import { useApiWithToast } from '@/api/useApi';
 
 import { useRegisterStore } from '@/store/register';
 
+import { useApiWithToast } from '@/hook/use-api';
+
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 
 interface RegisterModalProps {
   open: boolean;

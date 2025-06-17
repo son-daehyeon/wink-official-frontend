@@ -1,19 +1,31 @@
 import { useCallback } from 'react';
-import { useForm } from 'react-hook-form';
 
 import Image from 'next/image';
 
-import { Button } from '@/ui/button';
+import { Button } from '@/component/ui/button';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/ui/carousel';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/ui/dialog';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
+} from '@/component/ui/carousel';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/component/ui/dialog';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
 
 import Api from '@/api';
 import {
@@ -21,12 +33,14 @@ import {
   CreateActivityRequestSchema,
 } from '@/api/type/domain/program/activity';
 import Activity from '@/api/type/schema/activity';
-import { useApiWithToast } from '@/api/useApi';
 
-import { uploadS3 } from '@/util';
+import { useApiWithToast } from '@/hook/use-api';
+
+import { uploadS3 } from '@/lib/util';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Trash2, Upload } from 'lucide-react';
+import { useForm } from 'react-hook-form';
 
 interface CreateActivityModalProps {
   open: boolean;

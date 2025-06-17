@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import FinalizeInterviewModal from '@/app/admin/recruit/[id]/_component/modal/finalize-interview';
 import FinalizePaperModal from '@/app/admin/recruit/[id]/_component/modal/finalize-paper';
+import Loading from '@/app/loading';
 
 import {
   Breadcrumb,
@@ -14,14 +15,14 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/ui/breadcrumb';
-import { Button } from '@/ui/button';
-import { Input } from '@/ui/input';
-import { ScrollArea, ScrollBar } from '@/ui/scroll-area';
-import { Separator } from '@/ui/separator';
-import { SidebarTrigger, useSidebar } from '@/ui/sidebar';
-import { Skeleton } from '@/ui/skeleton';
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@/ui/table';
+} from '@/component/ui/breadcrumb';
+import { Button } from '@/component/ui/button';
+import { Input } from '@/component/ui/input';
+import { ScrollArea, ScrollBar } from '@/component/ui/scroll-area';
+import { Separator } from '@/component/ui/separator';
+import { SidebarTrigger, useSidebar } from '@/component/ui/sidebar';
+import { Skeleton } from '@/component/ui/skeleton';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@/component/ui/table';
 
 import Api from '@/api';
 import Recruit, { Step } from '@/api/type/schema/recruit';
@@ -31,11 +32,10 @@ import RecruitForm, {
   DevOpsTechStack,
   FrontendTechStack,
 } from '@/api/type/schema/recruit-form';
-import { useApi } from '@/api/useApi';
 
-import { cn, formatDate } from '@/util';
+import { useApi } from '@/hook/use-api';
 
-import Loading from '@/app/loading';
+import { cn, formatDate } from '@/lib/util';
 
 import { FileUser, Speech } from 'lucide-react';
 import { parseAsString, useQueryState } from 'nuqs';

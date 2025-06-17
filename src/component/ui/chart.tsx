@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { cn } from '@/util';
+import { cn } from '@/lib/util';
 
 import * as RechartsPrimitive from 'recharts';
 

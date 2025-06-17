@@ -3,15 +3,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { NavItemType } from '@/layout/_constant/header-item';
+import MobileNavItem from '@/component/layout/_components/mobile-nav-item';
+import { NavItemType } from '@/component/layout/_constant/header-item';
 
-import MobileNavItem from '@/layout/_components/mobile-nav-item';
-
-import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
-import { Button } from '@/ui/button';
-import { Separator } from '@/ui/separator';
-import { Sheet, SheetContent, SheetTrigger } from '@/ui/sheet';
-import { Skeleton } from '@/ui/skeleton';
+import { Avatar, AvatarFallback, AvatarImage } from '@/component/ui/avatar';
+import { Button } from '@/component/ui/button';
+import { Separator } from '@/component/ui/separator';
+import { Sheet, SheetContent, SheetTrigger } from '@/component/ui/sheet';
+import { Skeleton } from '@/component/ui/skeleton';
 
 import Api from '@/api';
 import User from '@/api/type/schema/user';

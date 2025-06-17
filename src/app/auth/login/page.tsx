@@ -1,27 +1,35 @@
 'use client';
 
 import { useCallback, useEffect } from 'react';
-import Confetti from 'react-confetti';
-import { useForm } from 'react-hook-form';
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { Button } from '@/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
-import { Separator } from '@/ui/separator';
+import { Button } from '@/component/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
+import { Separator } from '@/component/ui/separator';
 
 import Api from '@/api';
 import { LoginRequest, LoginRequestSchema } from '@/api/type/domain/auth';
-import { useApiWithToast } from '@/api/useApi';
 
 import { useRegisterStore } from '@/store/register';
 
-import { parseAsURI } from '@/util';
+import { useApiWithToast } from '@/hook/use-api';
+
+import { parseAsURI } from '@/lib/util';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQueryState } from 'nuqs';
+import Confetti from 'react-confetti';
+import { useForm } from 'react-hook-form';
 
 export default function AuthLoginPage() {
   const router = useRouter();

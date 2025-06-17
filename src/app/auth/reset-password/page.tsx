@@ -1,22 +1,30 @@
 'use client';
 
 import { useCallback, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
 
 import { useRouter } from 'next/navigation';
 
-import { Button } from '@/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
+import Loading from '@/app/loading';
+
+import { Button } from '@/component/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
 
 import Api from '@/api';
 import { ResetPasswordRequest, ResetPasswordRequestSchema } from '@/api/type/domain/auth';
-import { useApi, useApiWithToast } from '@/api/useApi';
 
-import Loading from '@/app/loading';
+import { useApi, useApiWithToast } from '@/hook/use-api';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { parseAsString, useQueryState } from 'nuqs';
+import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
 export default function AuthResetPasswordPage() {

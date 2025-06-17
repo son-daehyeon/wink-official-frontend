@@ -5,17 +5,24 @@ import { useEffect, useState } from 'react';
 import Title from '@/app/program/_component/title';
 import StudyCard from '@/app/program/study/_component/study-card';
 
-import { Button } from '@/ui/button';
-import { Input } from '@/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/ui/select';
-import { Skeleton } from '@/ui/skeleton';
+import { Button } from '@/component/ui/button';
+import { Input } from '@/component/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/component/ui/select';
+import { Skeleton } from '@/component/ui/skeleton';
 
 import Api from '@/api';
 import Page from '@/api/type/schema/page';
 import Study from '@/api/type/schema/study';
-import { useApi } from '@/api/useApi';
 
-import { cn } from '@/util';
+import { useApi } from '@/hook/use-api';
+
+import { cn } from '@/lib/util';
 
 import _ from 'lodash';
 import { parseAsInteger, parseAsString, useQueryState } from 'nuqs';

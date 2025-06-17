@@ -5,18 +5,18 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { SCOPE_MAP } from '@/app/application/[id]/_constant/scope-map';
+import Loading from '@/app/loading';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
-import { Button } from '@/ui/button';
-import { Separator } from '@/ui/separator';
+import { Avatar, AvatarFallback, AvatarImage } from '@/component/ui/avatar';
+import { Button } from '@/component/ui/button';
+import { Separator } from '@/component/ui/separator';
 
 import Api from '@/api';
 import Application from '@/api/type/schema/application';
-import { useApi } from '@/api/useApi';
 
 import { useUserStore } from '@/store/user';
 
-import Loading from '@/app/loading';
+import { useApi } from '@/hook/use-api';
 
 import { parseAsString, useQueryState } from 'nuqs';
 import { toast } from 'sonner';

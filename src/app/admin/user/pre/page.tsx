@@ -11,16 +11,16 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/ui/breadcrumb';
-import { Button } from '@/ui/button';
-import { Checkbox } from '@/ui/checkbox';
+} from '@/component/ui/breadcrumb';
+import { Button } from '@/component/ui/button';
+import { Checkbox } from '@/component/ui/checkbox';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/ui/dropdown-menu';
-import { Input } from '@/ui/input';
+} from '@/component/ui/dropdown-menu';
+import { Input } from '@/component/ui/input';
 import {
   Pagination,
   PaginationContent,
@@ -28,16 +28,24 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@/ui/pagination';
-import { Separator } from '@/ui/separator';
-import { SidebarTrigger } from '@/ui/sidebar';
-import { Skeleton } from '@/ui/skeleton';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/ui/table';
+} from '@/component/ui/pagination';
+import { Separator } from '@/component/ui/separator';
+import { SidebarTrigger } from '@/component/ui/sidebar';
+import { Skeleton } from '@/component/ui/skeleton';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/component/ui/table';
 
 import Api from '@/api';
 import Page from '@/api/type/schema/page';
 import PreUser from '@/api/type/schema/pre-user';
-import { useApi } from '@/api/useApi';
+
+import { useApi } from '@/hook/use-api';
 
 import _ from 'lodash';
 import { MoreHorizontal } from 'lucide-react';

@@ -13,16 +13,16 @@ import {
   useState,
 } from 'react';
 
-import { Button } from '@/ui/button';
-import { Input } from '@/ui/input';
-import { Separator } from '@/ui/separator';
-import { Sheet, SheetContent } from '@/ui/sheet';
-import { Skeleton } from '@/ui/skeleton';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/ui/tooltip';
-
-import { cn } from '@/util';
+import { Button } from '@/component/ui/button';
+import { Input } from '@/component/ui/input';
+import { Separator } from '@/component/ui/separator';
+import { Sheet, SheetContent } from '@/component/ui/sheet';
+import { Skeleton } from '@/component/ui/skeleton';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/component/ui/tooltip';
 
 import useIsMobile from '@/hook/use-mobile';
+
+import { cn } from '@/lib/util';
 
 import { Slot } from '@radix-ui/react-slot';
 import { VariantProps, cva } from 'class-variance-authority';

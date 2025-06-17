@@ -5,15 +5,15 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import RegisterModal from '@/app/auth/register/_component/modal/register-modal';
+import Loading from '@/app/loading';
 
-import { Button } from '@/ui/button';
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@/ui/table';
+import { Button } from '@/component/ui/button';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@/component/ui/table';
 
 import Api from '@/api';
 import PreUser from '@/api/type/schema/pre-user';
-import { useApi } from '@/api/useApi';
 
-import Loading from '@/app/loading';
+import { useApi } from '@/hook/use-api';
 
 import { parseAsString, useQueryState } from 'nuqs';
 import { toast } from 'sonner';

@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import { IconMHandWithFingersSplayedDefault } from 'react-fluentui-emoji/lib/modern';
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { Button } from '@/ui/button';
-import { Checkbox } from '@/ui/checkbox';
-import { Label } from '@/ui/label';
+import { RecruitStepProps } from '@/app/recruit/form/page';
+
+import { Button } from '@/component/ui/button';
+import { Checkbox } from '@/component/ui/checkbox';
+import { Label } from '@/component/ui/label';
 
 import { useRecruitStore } from '@/store/recruit';
 
-import { RecruitStepProps } from '@/app/recruit/form/page';
-
 import { CheckedState } from '@radix-ui/react-checkbox';
 import { motion } from 'framer-motion';
+import { IconMHandWithFingersSplayedDefault } from 'react-fluentui-emoji/lib/modern';
 
 export default function Step0({ go }: RecruitStepProps) {
   const router = useRouter();

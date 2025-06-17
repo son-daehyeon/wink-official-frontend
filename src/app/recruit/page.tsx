@@ -1,39 +1,43 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import Confetti from 'react-confetti';
-import { IconMRocket } from 'react-fluentui-emoji/lib/modern';
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { domains } from '@/app/recruit/_constant/domain';
-import { qnas } from '@/app/recruit/_constant/qna';
-
+import Loading from '@/app/loading';
 import DomainCard from '@/app/recruit/_component/domain-card';
 import InfoCard, { Info } from '@/app/recruit/_component/info-card';
 import Items from '@/app/recruit/_component/items';
 import RecruitTitle from '@/app/recruit/_component/recruit-title';
 import Rocket from '@/app/recruit/_component/rocket';
 import ScrollDown from '@/app/recruit/_component/scroll-down';
+import { domains } from '@/app/recruit/_constant/domain';
+import { qnas } from '@/app/recruit/_constant/qna';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/ui/accordion';
-import { Button } from '@/ui/button';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/component/ui/accordion';
+import { Button } from '@/component/ui/button';
 
 import Api from '@/api';
 import Recruit from '@/api/type/schema/recruit';
-import { useApi } from '@/api/useApi';
 
 import { useRecruitStore } from '@/store/recruit';
 import { useUserStore } from '@/store/user';
 
-import { formatDate, nowDate, toDate } from '@/util';
+import { useApi } from '@/hook/use-api';
+
+import { formatDate, nowDate, toDate } from '@/lib/util';
 
 import BackgroundImage from '@/public/recruit/background.webp';
 
-import Loading from '@/app/loading';
-
 import { endOfDay, isAfter, isBefore, startOfDay } from 'date-fns';
+import Confetti from 'react-confetti';
+import { IconMRocket } from 'react-fluentui-emoji/lib/modern';
 import { toast } from 'sonner';
 
 export default function RecruitPage() {

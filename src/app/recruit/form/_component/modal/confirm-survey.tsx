@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { UseFormReturn } from 'react-hook-form';
 
 import { useRouter } from 'next/navigation';
 
-import { Button } from '@/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/ui/dialog';
+import { Button } from '@/component/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/component/ui/dialog';
 
 import Api from '@/api';
 import { RecruitFormRequest } from '@/api/type/domain/recruit';
@@ -12,6 +17,7 @@ import Recruit from '@/api/type/schema/recruit';
 
 import { useRecruitStore } from '@/store/recruit';
 
+import { UseFormReturn } from 'react-hook-form';
 import { toast } from 'sonner';
 
 interface ConfirmSurveyModalProps {
@@ -37,8 +43,10 @@ export default function ConfirmSurveyModal({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>지원서 제출</DialogTitle>
-          <DialogDescription>지원서를 제출하면 이후 수정이 불가능합니다.</DialogDescription>
+          <DialogTitle>지원서 제출하기</DialogTitle>
+          <DialogDescription>
+            지원서를 제출하신 후에는 이메일로 전송된 링크를 통해 수정하실 수 있습니다.
+          </DialogDescription>
         </DialogHeader>
 
         <Button
@@ -47,7 +55,7 @@ export default function ConfirmSurveyModal({
           onClick={() => {
             toast.promise(
               async () => {
-                await Api.Domain.Recruit.recruitForm(recruit.id, {
+                await Api.Domain.Recruit.submitForm(recruit.id, {
                   ...form.getValues(),
                   whyCannotInterview: form.getValues('whyCannotInterview') || undefined,
                   github: form.getValues('github') || undefined,

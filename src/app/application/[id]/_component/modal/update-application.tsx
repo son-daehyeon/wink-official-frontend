@@ -1,11 +1,23 @@
 import { useCallback, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
 
-import { Avatar, AvatarImage } from '@/ui/avatar';
-import { Button } from '@/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/ui/dialog';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
+import { Avatar, AvatarImage } from '@/component/ui/avatar';
+import { Button } from '@/component/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/component/ui/dialog';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
 
 import Api from '@/api';
 import {
@@ -13,12 +25,14 @@ import {
   UpdateApplicationRequestSchema,
 } from '@/api/type/domain/application';
 import Application from '@/api/type/schema/application';
-import { useApiWithToast } from '@/api/useApi';
 
-import { uploadS3 } from '@/util';
+import { useApiWithToast } from '@/hook/use-api';
+
+import { uploadS3 } from '@/lib/util';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Upload } from 'lucide-react';
+import { useForm } from 'react-hook-form';
 
 interface UpdateApplicationModalProps {
   open: boolean;

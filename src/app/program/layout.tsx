@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 
 import { usePathname } from 'next/navigation';
 
-import { cn } from '@/util';
+import { cn } from '@/lib/util';
 
 interface ProgramLayoutProps {
   children: ReactNode;

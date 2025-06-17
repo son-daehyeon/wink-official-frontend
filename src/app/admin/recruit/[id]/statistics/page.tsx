@@ -10,13 +10,13 @@ import StudentIdInterviewTotalChart from '@/app/admin/recruit/[id]/statistics/_c
 import StudentIdPaperFailChart from '@/app/admin/recruit/[id]/statistics/_component/student-id-paper-fail';
 import StudentIdPaperPassChart from '@/app/admin/recruit/[id]/statistics/_component/student-id-paper-pass';
 import StudentIdPaperTotalChart from '@/app/admin/recruit/[id]/statistics/_component/student-id-paper-total';
+import Loading from '@/app/loading';
 
 import Api from '@/api';
 import Recruit from '@/api/type/schema/recruit';
 import RecruitForm from '@/api/type/schema/recruit-form';
-import { useApi } from '@/api/useApi';
 
-import Loading from '@/app/loading';
+import { useApi } from '@/hook/use-api';
 
 interface AdminRecruitStatisticsPageProps {
   params: { id: string };

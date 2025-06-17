@@ -1,12 +1,13 @@
 import React, { useCallback, useState } from 'react';
 
-import { Button } from '@/ui/button';
-import { Input } from '@/ui/input';
-import { Label } from '@/ui/label';
+import { Button } from '@/component/ui/button';
+import { Input } from '@/component/ui/input';
+import { Label } from '@/component/ui/label';
 
 import Api from '@/api';
 import Application from '@/api/type/schema/application';
-import { useApiWithToast } from '@/api/useApi';
+
+import { useApiWithToast } from '@/hook/use-api';
 
 import { toast } from 'sonner';
 

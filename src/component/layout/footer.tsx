@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { FooterLinks } from '@/layout/_constant/footer-link';
+import { FooterLinks } from '@/component/layout/_constant/footer-link';
 
 import logo from '@/public/footer/logo.png';
 

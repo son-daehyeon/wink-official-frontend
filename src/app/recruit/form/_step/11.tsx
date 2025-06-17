@@ -2,15 +2,15 @@ import { useState } from 'react';
 
 import Image from 'next/image';
 
-import { Button } from '@/ui/button';
-import { FormControl, FormField, FormItem, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
+import { RecruitStepProps } from '@/app/recruit/form/page';
+
+import { Button } from '@/component/ui/button';
+import { FormControl, FormField, FormItem, FormMessage } from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
 
 import { useRecruitStore } from '@/store/recruit';
 
 import Github from '@/public/recruit/icon/github.png';
-
-import { RecruitStepProps } from '@/app/recruit/form/page';
 
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';

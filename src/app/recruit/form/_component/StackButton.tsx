@@ -1,4 +1,4 @@
-import { Button } from '@/ui/button';
+import { Button } from '@/component/ui/button';
 
 import { useRecruitStore } from '@/store/recruit';
 

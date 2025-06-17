@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
-import { IconMThinkingFace } from 'react-fluentui-emoji/lib/modern';
-
-import { Button } from '@/ui/button';
-import { FormControl, FormField, FormItem, FormMessage } from '@/ui/form';
-import { Textarea } from '@/ui/textarea';
-
-import { useRecruitStore } from '@/store/recruit';
-
-import { cn } from '@/util';
 
 import { RecruitStepProps } from '@/app/recruit/form/page';
 
+import { Button } from '@/component/ui/button';
+import { FormControl, FormField, FormItem, FormMessage } from '@/component/ui/form';
+import { Textarea } from '@/component/ui/textarea';
+
+import { useRecruitStore } from '@/store/recruit';
+
+import { cn } from '@/lib/util';
+
 import { motion } from 'framer-motion';
+import { IconMThinkingFace } from 'react-fluentui-emoji/lib/modern';
 import { toast } from 'sonner';
 
 export default function Step6({ go, form }: RecruitStepProps) {

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/component/ui/card';
 import {
   ChartConfig,
   ChartContainer,
@@ -8,7 +8,7 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
-} from '@/ui/chart';
+} from '@/component/ui/chart';
 
 import RecruitForm from '@/api/type/schema/recruit-form';
 

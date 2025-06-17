@@ -8,16 +8,16 @@ import GeneralSetting from '@/app/application/[id]/_component/layout/GeneralSett
 import LoginSetting from '@/app/application/[id]/_component/layout/LoginSetting';
 import DeleteApplicationModal from '@/app/application/[id]/_component/modal/delete-application';
 import UpdateApplicationModal from '@/app/application/[id]/_component/modal/update-application';
+import Loading from '@/app/loading';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
-import { Button } from '@/ui/button';
-import { Separator } from '@/ui/separator';
+import { Avatar, AvatarFallback, AvatarImage } from '@/component/ui/avatar';
+import { Button } from '@/component/ui/button';
+import { Separator } from '@/component/ui/separator';
 
 import Api from '@/api';
 import Application from '@/api/type/schema/application';
-import { useApi } from '@/api/useApi';
 
-import Loading from '@/app/loading';
+import { useApi } from '@/hook/use-api';
 
 import { Pen, Trash2 } from 'lucide-react';
 

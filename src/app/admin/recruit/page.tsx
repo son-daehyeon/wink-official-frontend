@@ -14,24 +14,32 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/ui/breadcrumb';
-import { Button } from '@/ui/button';
+} from '@/component/ui/breadcrumb';
+import { Button } from '@/component/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/ui/dropdown-menu';
-import { Separator } from '@/ui/separator';
-import { SidebarTrigger } from '@/ui/sidebar';
-import { Skeleton } from '@/ui/skeleton';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/ui/table';
+} from '@/component/ui/dropdown-menu';
+import { Separator } from '@/component/ui/separator';
+import { SidebarTrigger } from '@/component/ui/sidebar';
+import { Skeleton } from '@/component/ui/skeleton';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/component/ui/table';
 
 import Api from '@/api';
 import Recruit from '@/api/type/schema/recruit';
-import { useApi } from '@/api/useApi';
 
-import { formatDate } from '@/util';
+import { useApi } from '@/hook/use-api';
+
+import { formatDate } from '@/lib/util';
 
 import { MoreHorizontal } from 'lucide-react';
 

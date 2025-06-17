@@ -1,19 +1,19 @@
 import { useEffect, useMemo, useState } from 'react';
-import { IconMSpiralCalendar } from 'react-fluentui-emoji/lib/modern';
-
-import { Button } from '@/ui/button';
-import { Checkbox } from '@/ui/checkbox';
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
-import { Separator } from '@/ui/separator';
-
-import { useRecruitStore } from '@/store/recruit';
-
-import { formatDate, formatDateApi, toDate } from '@/util';
 
 import { RecruitStepProps } from '@/app/recruit/form/page';
 
+import { Button } from '@/component/ui/button';
+import { Checkbox } from '@/component/ui/checkbox';
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
+import { Separator } from '@/component/ui/separator';
+
+import { useRecruitStore } from '@/store/recruit';
+
+import { formatDate, formatDateApi, toDate } from '@/lib/util';
+
 import { motion } from 'framer-motion';
+import { IconMSpiralCalendar } from 'react-fluentui-emoji/lib/modern';
 import { toast } from 'sonner';
 
 export default function Step9({ go, recruit, form }: RecruitStepProps) {

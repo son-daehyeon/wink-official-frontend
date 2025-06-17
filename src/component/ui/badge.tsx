@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 
-import { cn } from '@/util';
+import { cn } from '@/lib/util';
 
 import { type VariantProps, cva } from 'class-variance-authority';
 

@@ -2,14 +2,15 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { SCOPE_MAP } from '@/app/application/[id]/_constant/scope-map';
 
-import { Label } from '@/ui/label';
-import { Switch } from '@/ui/switch';
-import { Textarea } from '@/ui/textarea';
+import { Label } from '@/component/ui/label';
+import { Switch } from '@/component/ui/switch';
+import { Textarea } from '@/component/ui/textarea';
 
 import Api from '@/api';
 import Application, { Scope } from '@/api/type/schema/application';
-import { useApiWithToast } from '@/api/useApi';
 import { URL_EXPRESSION } from '@/api/validation';
+
+import { useApiWithToast } from '@/hook/use-api';
 
 import _ from 'lodash';
 

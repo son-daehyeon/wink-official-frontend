@@ -15,8 +15,12 @@ export default class Recruit {
     return this.request.get('/recruit/latest');
   }
 
-  public async recruitForm(recruitId: string, data: RecruitFormRequest): Promise<void> {
+  public async submitForm(recruitId: string, data: RecruitFormRequest): Promise<void> {
     return this.request.post(`/recruit/${recruitId}`, data);
+  }
+
+  public async editForm(editToken: string, data: RecruitFormRequest): Promise<void> {
+    return this.request.put(`/recruit/${editToken}`, data);
   }
 
   public async checkStudentId(

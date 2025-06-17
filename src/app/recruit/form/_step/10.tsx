@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { IconMGear } from 'react-fluentui-emoji/lib/modern';
-
-import { Button } from '@/ui/button';
-
-import { useRecruitStore } from '@/store/recruit';
 
 import { RecruitStepProps } from '@/app/recruit/form/page';
 
+import { Button } from '@/component/ui/button';
+
+import { useRecruitStore } from '@/store/recruit';
+
 import { motion } from 'framer-motion';
+import { IconMGear } from 'react-fluentui-emoji/lib/modern';
 
 export default function Step10({ go, form }: RecruitStepProps) {
   const { step, modify, setModify, setDeveloper } = useRecruitStore();

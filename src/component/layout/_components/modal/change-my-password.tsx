@@ -1,16 +1,30 @@
 import { useCallback } from 'react';
-import { useForm } from 'react-hook-form';
 
-import { Button } from '@/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/ui/dialog';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
+import { Button } from '@/component/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/component/ui/dialog';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
 
 import Api from '@/api';
 import { UpdateMyPasswordRequest, UpdateMyPasswordRequestSchema } from '@/api/type/domain/user';
-import { useApiWithToast } from '@/api/useApi';
+
+import { useApiWithToast } from '@/hook/use-api';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 
 interface ChangeMyInfoModalProps {
   open: boolean;

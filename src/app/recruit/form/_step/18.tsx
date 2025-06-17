@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { IconMBallotBoxWithBallot } from 'react-fluentui-emoji/lib/modern';
 
 import ConfirmSurveyModal from '@/app/recruit/form/_component/modal/confirm-survey';
+import { RecruitStepProps } from '@/app/recruit/form/page';
 
-import { Button } from '@/ui/button';
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@/ui/table';
+import { Button } from '@/component/ui/button';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@/component/ui/table';
 
 import {
   BackendTechStack,
@@ -15,11 +15,10 @@ import {
 
 import { useRecruitStore } from '@/store/recruit';
 
-import { formatDate } from '@/util';
-
-import { RecruitStepProps } from '@/app/recruit/form/page';
+import { formatDate } from '@/lib/util';
 
 import { motion } from 'framer-motion';
+import { IconMBallotBoxWithBallot } from 'react-fluentui-emoji/lib/modern';
 
 export default function Step18({ go, recruit, form }: RecruitStepProps) {
   const { setModify, developer, stack } = useRecruitStore();

@@ -6,15 +6,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { getMenuItems } from '@/layout/_constant/header-item';
+import MobileMenu from '@/component/layout/_components/mobile-menu';
+import ChangeMyInfoModal from '@/component/layout/_components/modal/change-my-info';
+import ChangeMyPasswordModal from '@/component/layout/_components/modal/change-my-password';
+import NavItem from '@/component/layout/_components/nav-item';
+import { getMenuItems } from '@/component/layout/_constant/header-item';
 
-import MobileMenu from '@/layout/_components/mobile-menu';
-import ChangeMyInfoModal from '@/layout/_components/modal/change-my-info';
-import ChangeMyPasswordModal from '@/layout/_components/modal/change-my-password';
-import NavItem from '@/layout/_components/nav-item';
-
-import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
-import { Button } from '@/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/component/ui/avatar';
+import { Button } from '@/component/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,14 +21,14 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/ui/dropdown-menu';
-import { Skeleton } from '@/ui/skeleton';
+} from '@/component/ui/dropdown-menu';
+import { Skeleton } from '@/component/ui/skeleton';
 
 import Api from '@/api';
 
 import { useUserStore } from '@/store/user';
 
-import { nowPath } from '@/util';
+import { nowPath } from '@/lib/util';
 
 import logo from '@/public/logo.png';
 

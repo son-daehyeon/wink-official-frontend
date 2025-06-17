@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { IconMSlightlySmilingFace } from 'react-fluentui-emoji/lib/modern';
-
-import { Button } from '@/ui/button';
-import { FormControl, FormField, FormItem, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
-
-import { useRecruitStore } from '@/store/recruit';
 
 import { RecruitStepProps } from '@/app/recruit/form/page';
 
+import { Button } from '@/component/ui/button';
+import { FormControl, FormField, FormItem, FormMessage } from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
+
+import { useRecruitStore } from '@/store/recruit';
+
 import { motion } from 'framer-motion';
+import { IconMSlightlySmilingFace } from 'react-fluentui-emoji/lib/modern';
 import { toast } from 'sonner';
 
 export default function Step1({ go, form }: RecruitStepProps) {

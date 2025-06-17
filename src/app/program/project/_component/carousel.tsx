@@ -2,11 +2,11 @@ import { useMemo, useState } from 'react';
 
 import Image from 'next/image';
 
-import { Skeleton } from '@/ui/skeleton';
+import { Skeleton } from '@/component/ui/skeleton';
 
 import Project from '@/api/type/schema/project';
 
-import { cn } from '@/util';
+import { cn } from '@/lib/util';
 
 interface CarouselProps {
   loading: boolean;

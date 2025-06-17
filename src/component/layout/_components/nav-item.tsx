@@ -2,15 +2,15 @@ import { useState } from 'react';
 
 import Link from 'next/link';
 
-import { NavItemType } from '@/layout/_constant/header-item';
+import { NavItemType } from '@/component/layout/_constant/header-item';
 
-import { Button } from '@/ui/button';
+import { Button } from '@/component/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/ui/dropdown-menu';
+} from '@/component/ui/dropdown-menu';
 
 interface NavItemProps {
   item: NavItemType;

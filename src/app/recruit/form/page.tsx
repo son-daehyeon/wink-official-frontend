@@ -1,21 +1,8 @@
 'use client';
 
 import { ComponentType, useCallback, useEffect, useMemo, useState } from 'react';
-import { UseFormReturn, useForm } from 'react-hook-form';
 
 import { useRouter } from 'next/navigation';
-
-import { Form } from '@/ui/form';
-import { Progress } from '@/ui/progress';
-
-import Api from '@/api';
-import { RecruitFormRequest, RecruitFormRequestSchema } from '@/api/type/domain/recruit';
-import Recruit from '@/api/type/schema/recruit';
-import { useApi } from '@/api/useApi';
-
-import { useRecruitStore } from '@/store/recruit';
-
-import { nowDate, toDate } from '@/util';
 
 import Loading from '@/app/loading';
 import Step0 from '@/app/recruit/form/_step/0';
@@ -38,10 +25,24 @@ import Step16 from '@/app/recruit/form/_step/16';
 import Step17 from '@/app/recruit/form/_step/17';
 import Step18 from '@/app/recruit/form/_step/18';
 
+import { Form } from '@/component/ui/form';
+import { Progress } from '@/component/ui/progress';
+
+import Api from '@/api';
+import { RecruitFormRequest, RecruitFormRequestSchema } from '@/api/type/domain/recruit';
+import Recruit from '@/api/type/schema/recruit';
+
+import { useRecruitStore } from '@/store/recruit';
+
+import { useApi } from '@/hook/use-api';
+
+import { nowDate, toDate } from '@/lib/util';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { endOfDay, startOfDay } from 'date-fns';
 import { motion, useAnimationControls } from 'framer-motion';
 import { CircleChevronLeft } from 'lucide-react';
+import { UseFormReturn, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
 export interface RecruitStepProps {

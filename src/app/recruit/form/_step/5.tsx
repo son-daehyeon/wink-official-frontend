@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import { IconMTelephoneReceiver } from 'react-fluentui-emoji/lib/modern';
 
 import { useRouter } from 'next/navigation';
 
-import { Button } from '@/ui/button';
-import { FormControl, FormField, FormItem, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
+import { RecruitStepProps } from '@/app/recruit/form/page';
+
+import { Button } from '@/component/ui/button';
+import { FormControl, FormField, FormItem, FormMessage } from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
 
 import Api from '@/api';
 
 import { useRecruitStore } from '@/store/recruit';
 
-import { RecruitStepProps } from '@/app/recruit/form/page';
-
 import { motion } from 'framer-motion';
+import { IconMTelephoneReceiver } from 'react-fluentui-emoji/lib/modern';
 import { toast } from 'sonner';
 
 export default function Step5({ go, recruit, form }: RecruitStepProps) {

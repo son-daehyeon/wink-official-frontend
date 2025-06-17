@@ -7,12 +7,13 @@ import { useRouter } from 'next/navigation';
 
 import CreateApplicationModal from '@/app/application/_component/modal/create-application';
 
-import { Button } from '@/ui/button';
-import { Skeleton } from '@/ui/skeleton';
+import { Button } from '@/component/ui/button';
+import { Skeleton } from '@/component/ui/skeleton';
 
 import Api from '@/api';
 import Application from '@/api/type/schema/application';
-import { useApi } from '@/api/useApi';
+
+import { useApi } from '@/hook/use-api';
 
 import { BookText, Plus } from 'lucide-react';
 

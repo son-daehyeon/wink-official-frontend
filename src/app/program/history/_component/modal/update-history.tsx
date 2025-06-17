@@ -1,15 +1,21 @@
 import { useCallback, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
 
 import Image from 'next/image';
 
-import { Button } from '@/ui/button';
-import { Calendar } from '@/ui/calendar';
-import { DialogHeader } from '@/ui/dialog';
-import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/ui/dialog';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
-import { Popover, PopoverContent, PopoverTrigger } from '@/ui/popover';
+import { Button } from '@/component/ui/button';
+import { Calendar } from '@/component/ui/calendar';
+import { DialogHeader } from '@/component/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/component/ui/dialog';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
+import { Popover, PopoverContent, PopoverTrigger } from '@/component/ui/popover';
 
 import Api from '@/api';
 import {
@@ -17,12 +23,14 @@ import {
   CreateHistoryRequestSchema,
 } from '@/api/type/domain/program/history';
 import History from '@/api/type/schema/history';
-import { useApiWithToast } from '@/api/useApi';
 
-import { formatDate, formatDateApi, toDate, uploadS3 } from '@/util';
+import { useApiWithToast } from '@/hook/use-api';
+
+import { formatDate, formatDateApi, toDate, uploadS3 } from '@/lib/util';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Calendar as CalendarIcon, Upload } from 'lucide-react';
+import { useForm } from 'react-hook-form';
 
 interface UpdateHistoryModalProps {
   open: boolean;

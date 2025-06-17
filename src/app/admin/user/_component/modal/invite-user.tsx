@@ -1,9 +1,8 @@
 import { useCallback, useState } from 'react';
-import { useForm } from 'react-hook-form';
 
 import { departments } from '@/app/recruit/form/_constant/departments';
 
-import { Button } from '@/ui/button';
+import { Button } from '@/component/ui/button';
 import {
   Command,
   CommandEmpty,
@@ -11,20 +10,35 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/ui/command';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/ui/dialog';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
-import { Popover, PopoverContent, PopoverTrigger } from '@/ui/popover';
+} from '@/component/ui/command';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/component/ui/dialog';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
+import { Popover, PopoverContent, PopoverTrigger } from '@/component/ui/popover';
 
 import Api from '@/api';
 import { InviteRequest, InviteRequestSchema } from '@/api/type/domain/user';
-import { useApiWithToast } from '@/api/useApi';
 
-import { cn } from '@/util';
+import { useApiWithToast } from '@/hook/use-api';
+
+import { cn } from '@/lib/util';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Check, ChevronsUpDown } from 'lucide-react';
+import { useForm } from 'react-hook-form';
 
 interface InviteUserModalProps {
   open: boolean;

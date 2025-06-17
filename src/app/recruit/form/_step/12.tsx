@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import { IconMLaptop } from 'react-fluentui-emoji/lib/modern';
 
 import StackButton from '@/app/recruit/form/_component/StackButton';
+import { RecruitStepProps } from '@/app/recruit/form/page';
 
-import { Button } from '@/ui/button';
+import { Button } from '@/component/ui/button';
 
 import { useRecruitStore } from '@/store/recruit';
 
-import { RecruitStepProps } from '@/app/recruit/form/page';
-
 import { motion } from 'framer-motion';
+import { IconMLaptop } from 'react-fluentui-emoji/lib/modern';
 
 export default function Step12({ go, form }: RecruitStepProps) {
   const { step, modify, setModify, setStack } = useRecruitStore();

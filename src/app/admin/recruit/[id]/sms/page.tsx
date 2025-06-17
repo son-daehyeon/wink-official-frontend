@@ -1,20 +1,28 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef } from 'react';
-import { Path, UseFormReturn, useForm } from 'react-hook-form';
 
-import { Button } from '@/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@/ui/table';
-import { Textarea } from '@/ui/textarea';
+import { Button } from '@/component/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/component/ui/form';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@/component/ui/table';
+import { Textarea } from '@/component/ui/textarea';
 
 import Api from '@/api';
 import { UpdateRecruitSmsRequest, UpdateRecruitSmsRequestSchema } from '@/api/type/domain/recruit';
-import { useApi, useApiWithToast } from '@/api/useApi';
 
 import { useUserStore } from '@/store/user';
 
+import { useApi, useApiWithToast } from '@/hook/use-api';
+
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Path, UseFormReturn, useForm } from 'react-hook-form';
 
 interface AdminRecruitSmsPageProps {
   params: { id: string };

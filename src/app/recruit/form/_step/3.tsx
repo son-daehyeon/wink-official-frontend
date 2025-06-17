@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { IconMGraduationCap } from 'react-fluentui-emoji/lib/modern';
 
 import { departments } from '@/app/recruit/form/_constant/departments';
+import { RecruitStepProps } from '@/app/recruit/form/page';
 
-import { Button } from '@/ui/button';
+import { Button } from '@/component/ui/button';
 import {
   Command,
   CommandEmpty,
@@ -11,18 +11,17 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/ui/command';
-import { FormControl, FormField, FormItem, FormMessage } from '@/ui/form';
-import { Popover, PopoverContent, PopoverTrigger } from '@/ui/popover';
+} from '@/component/ui/command';
+import { FormControl, FormField, FormItem, FormMessage } from '@/component/ui/form';
+import { Popover, PopoverContent, PopoverTrigger } from '@/component/ui/popover';
 
 import { useRecruitStore } from '@/store/recruit';
 
-import { cn } from '@/util';
-
-import { RecruitStepProps } from '@/app/recruit/form/page';
+import { cn } from '@/lib/util';
 
 import { motion } from 'framer-motion';
 import { Check, ChevronsUpDown } from 'lucide-react';
+import { IconMGraduationCap } from 'react-fluentui-emoji/lib/modern';
 import { toast } from 'sonner';
 
 export default function Step3({ go, form }: RecruitStepProps) {

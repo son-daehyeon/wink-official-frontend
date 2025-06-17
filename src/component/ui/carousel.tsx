@@ -12,9 +12,9 @@ import {
   useState,
 } from 'react';
 
-import { Button } from '@/ui/button';
+import { Button } from '@/component/ui/button';
 
-import { cn } from '@/util';
+import { cn } from '@/lib/util';
 
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';

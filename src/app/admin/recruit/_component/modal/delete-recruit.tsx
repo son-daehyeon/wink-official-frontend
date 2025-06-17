@@ -1,12 +1,19 @@
 import { useCallback } from 'react';
 
-import { Button } from '@/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/ui/dialog';
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@/ui/table';
+import { Button } from '@/component/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/component/ui/dialog';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@/component/ui/table';
 
 import Api from '@/api';
 import Recruit from '@/api/type/schema/recruit';
-import { useApiWithToast } from '@/api/useApi';
+
+import { useApiWithToast } from '@/hook/use-api';
 
 interface DeleteRecruitModalProps {
   open: boolean;

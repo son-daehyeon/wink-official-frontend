@@ -2,9 +2,9 @@
 
 import { ComponentPropsWithoutRef, ElementRef, HTMLAttributes, forwardRef } from 'react';
 
-import { Dialog, DialogContent } from '@/ui/dialog';
+import { Dialog, DialogContent } from '@/component/ui/dialog';
 
-import { cn } from '@/util';
+import { cn } from '@/lib/util';
 
 import { type DialogProps } from '@radix-ui/react-dialog';
 import { Command as CommandPrimitive } from 'cmdk';

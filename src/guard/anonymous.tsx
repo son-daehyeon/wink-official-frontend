@@ -4,18 +4,16 @@ import { ReactNode, useEffect } from 'react';
 
 import { useRouter } from 'next/navigation';
 
+import Loading from '@/app/loading';
+
 import { useInitStore } from '@/store/init';
 import { useUserStore } from '@/store/user';
 
-import { nowPath } from '@/util';
-
-import Loading from '@/app/loading';
-
-interface MemberGuardProps {
+interface AnonymousGuardProps {
   children: ReactNode;
 }
 
-export default function MemberGuard({ children }: MemberGuardProps) {
+export default function AnonymousGuard({ children }: AnonymousGuardProps) {
   const router = useRouter();
 
   const { user } = useUserStore();
@@ -23,12 +21,12 @@ export default function MemberGuard({ children }: MemberGuardProps) {
 
   useEffect(() => {
     if (!isInit) return;
-    if (!user) {
-      router.replace(`/auth/login?next=${encodeURIComponent(nowPath())}`);
+    if (user) {
+      router.replace('/');
     }
   }, [isInit, user]);
 
-  if (!isInit || !user) return <Loading />;
+  if (!isInit || user) return <Loading />;
 
   return children;
 }

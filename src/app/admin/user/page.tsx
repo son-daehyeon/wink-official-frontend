@@ -5,7 +5,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import InviteUserModal from '@/app/admin/user/_component/modal/invite-user';
 import UpdateUserModal from '@/app/admin/user/_component/modal/update-user';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/component/ui/avatar';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,15 +13,15 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/ui/breadcrumb';
-import { Button } from '@/ui/button';
+} from '@/component/ui/breadcrumb';
+import { Button } from '@/component/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/ui/dropdown-menu';
-import { Input } from '@/ui/input';
+} from '@/component/ui/dropdown-menu';
+import { Input } from '@/component/ui/input';
 import {
   Pagination,
   PaginationContent,
@@ -29,16 +29,24 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@/ui/pagination';
-import { Separator } from '@/ui/separator';
-import { SidebarTrigger } from '@/ui/sidebar';
-import { Skeleton } from '@/ui/skeleton';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/ui/table';
+} from '@/component/ui/pagination';
+import { Separator } from '@/component/ui/separator';
+import { SidebarTrigger } from '@/component/ui/sidebar';
+import { Skeleton } from '@/component/ui/skeleton';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/component/ui/table';
 
 import Api from '@/api';
 import Page from '@/api/type/schema/page';
 import User, { getKoreanRole } from '@/api/type/schema/user';
-import { useApi } from '@/api/useApi';
+
+import { useApi } from '@/hook/use-api';
 
 import _ from 'lodash';
 import { MoreHorizontal, UserIcon } from 'lucide-react';

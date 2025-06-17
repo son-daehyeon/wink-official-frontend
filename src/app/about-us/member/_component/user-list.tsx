@@ -1,10 +1,10 @@
 import { User } from '@/app/about-us/member/_component/user';
 
-import { Skeleton } from '@/ui/skeleton';
+import { Skeleton } from '@/component/ui/skeleton';
 
 import UserType from '@/api/type/schema/user';
 
-import { cn } from '@/util';
+import { cn } from '@/lib/util';
 
 type Direction = 'row' | 'col';
 

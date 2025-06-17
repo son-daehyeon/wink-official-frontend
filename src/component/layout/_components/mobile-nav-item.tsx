@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { NavItemType } from '@/layout/_constant/header-item';
+import { NavItemType } from '@/component/layout/_constant/header-item';
 
 interface MobileNavItem {
   item: NavItemType;

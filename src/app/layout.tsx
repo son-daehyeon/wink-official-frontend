@@ -4,18 +4,19 @@ import { ReactNode, useEffect } from 'react';
 
 import { usePathname } from 'next/navigation';
 
-import { Toaster } from '@/ui/sonner';
+import Loading from '@/app/loading';
 
-import Footer from '@/layout/footer';
-import Header from '@/layout/header';
+import Footer from '@/component/layout/footer';
+import Header from '@/component/layout/header';
+
+import { Toaster } from '@/component/ui/sonner';
 
 import Api from '@/api';
 
 import { useInitStore } from '@/store/init';
 
-import { cn } from '@/util';
+import { cn } from '@/lib/util';
 
-import Loading from '@/app/loading';
 import '@/style/global.css';
 
 import { NuqsAdapter } from 'nuqs/adapters/next/app';

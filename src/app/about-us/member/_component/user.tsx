@@ -2,12 +2,12 @@ import { useMemo } from 'react';
 
 import Link from 'next/link';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
-import { Separator } from '@/ui/separator';
+import { Avatar, AvatarFallback, AvatarImage } from '@/component/ui/avatar';
+import { Separator } from '@/component/ui/separator';
 
 import UserType, { Role, getKoreanRole } from '@/api/type/schema/user';
 
-import { cn } from '@/util';
+import { cn } from '@/lib/util';
 
 import { UserIcon } from 'lucide-react';
 

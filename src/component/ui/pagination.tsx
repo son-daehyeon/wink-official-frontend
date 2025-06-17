@@ -1,8 +1,8 @@
 import { ComponentProps, forwardRef } from 'react';
 
-import { ButtonProps, buttonVariants } from '@/ui/button';
+import { ButtonProps, buttonVariants } from '@/component/ui/button';
 
-import { cn } from '@/util';
+import { cn } from '@/lib/util';
 
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
 

@@ -11,24 +11,19 @@ export default {
   useTabs: false,
   plugins: ['@trivago/prettier-plugin-sort-imports'],
   importOrder: [
-    '^react',
+    '^react$',
     '^next',
-
-    '^@/.*?/(_constant)',
-    '^@/.*?/(_component)',
-
-    '^@/ui',
-    '^@/layout',
-    '^@/modal',
+    '^@/app',
+    '^@/component/layout',
+    '^@/component/ui',
     '^@/api',
-    '^@/guard',
     '^@/store',
-    '^@/util',
+    '^@/guard',
+    '^@/hook',
+    '^@/lib',
+    '^@/style',
     '^@/public',
-    '^@/',
-
     '^[./]',
-
     '<THIRD_PARTY_MODULES>',
   ],
   importOrderSeparation: true,

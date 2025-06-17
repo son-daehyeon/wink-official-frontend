@@ -1,22 +1,30 @@
 'use client';
 
 import { useCallback } from 'react';
-import { useForm } from 'react-hook-form';
 
 import { useRouter } from 'next/navigation';
 
-import { Button } from '@/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/ui/form';
-import { Input } from '@/ui/input';
+import { Button } from '@/component/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/component/ui/form';
+import { Input } from '@/component/ui/input';
 
 import Api from '@/api';
 import {
   RequestResetPasswordRequest,
   RequestResetPasswordRequestSchema,
 } from '@/api/type/domain/auth';
-import { useApiWithToast } from '@/api/useApi';
+
+import { useApiWithToast } from '@/hook/use-api';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 
 export default function AuthResetPasswordRequestPage() {
   const router = useRouter();
