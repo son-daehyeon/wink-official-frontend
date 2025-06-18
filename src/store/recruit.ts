@@ -14,6 +14,7 @@ interface Data {
   developer: boolean;
   stack: Stack[];
   back: boolean;
+  editToken?: string;
 }
 
 interface Action {
@@ -26,6 +27,7 @@ interface Action {
   setDeveloper: (developer: boolean) => void;
   setStack: (stack: Stack[]) => void;
   setBack: (back: boolean) => void;
+  setEditToken: (editToken: string | undefined) => void;
 }
 
 const initialState: Data = {
@@ -37,6 +39,7 @@ const initialState: Data = {
   developer: false,
   stack: [],
   back: false,
+  editToken: undefined,
 };
 
 export const useRecruitStore = create(
@@ -52,6 +55,7 @@ export const useRecruitStore = create(
       setDeveloper: (developer: boolean) => set({ developer }),
       setStack: (stack: Stack[]) => set({ stack }),
       setBack: (back: boolean) => set({ back }),
+      setEditToken: (editToken: string | undefined) => set({ editToken }),
     }),
     {
       name: 'recruit',

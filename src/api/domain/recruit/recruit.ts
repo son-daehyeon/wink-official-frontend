@@ -2,6 +2,7 @@ import WinkRequest from '@/api/request';
 import {
   DuplicationCheckResponse,
   EmailCheckRequest,
+  GetFormResponse,
   GetRecruitResponse,
   PhoneNumberCheckRequest,
   RecruitFormRequest,
@@ -19,8 +20,12 @@ export default class Recruit {
     return this.request.post(`/recruit/${recruitId}`, data);
   }
 
+  public async getEditForm(editToken: string): Promise<GetFormResponse> {
+    return this.request.get(`/recruit/edit/${editToken}`);
+  }
+
   public async editForm(editToken: string, data: RecruitFormRequest): Promise<void> {
-    return this.request.put(`/recruit/${editToken}`, data);
+    return this.request.post(`/recruit/edit/${editToken}`, data);
   }
 
   public async checkStudentId(

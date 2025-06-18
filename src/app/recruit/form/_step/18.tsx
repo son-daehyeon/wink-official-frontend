@@ -21,7 +21,7 @@ import { motion } from 'framer-motion';
 import { IconMBallotBoxWithBallot } from 'react-fluentui-emoji/lib/modern';
 
 export default function Step18({ go, recruit, form }: RecruitStepProps) {
-  const { setModify, developer, stack } = useRecruitStore();
+  const { setModify, developer, stack, editToken } = useRecruitStore();
 
   const [confirmSurveyModalOpen, setConfirmSurveyModalOpen] = useState(false);
 
@@ -42,7 +42,7 @@ export default function Step18({ go, recruit, form }: RecruitStepProps) {
           },
         }}
       >
-        <p className="font-medium text-lg">지원서를 제출할까요?</p>
+        <p className="font-medium text-lg">지원서를 {editToken ? '수정' : '제출'}할까요?</p>
       </motion.div>
 
       <motion.div
@@ -299,7 +299,7 @@ export default function Step18({ go, recruit, form }: RecruitStepProps) {
         }}
       >
         <Button variant="wink" onClick={() => setConfirmSurveyModalOpen(true)}>
-          지원서 제출하기
+          지원서 {editToken ? '수정' : '제출'}하기
         </Button>
       </motion.div>
 

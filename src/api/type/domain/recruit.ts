@@ -125,6 +125,10 @@ export const SendTestSmsRequestSchema = z.object({
   field: z.enum(['PAPER_FAIL', 'PAPER_PASS', 'FINAL_FAIL', 'FINAL_PASS']),
 });
 
+export const GetFormResponseSchema = z.object({
+  form: z.custom<RecruitForm>(),
+});
+
 export const GetFormsResponseSchema = z.object({
   forms: z.array(z.custom<RecruitForm>()),
 });
@@ -149,6 +153,7 @@ export type StudentIdCheckRequest = z.infer<typeof StudentIdCheckRequestSchema>;
 export type UpdateRecruitSmsRequest = z.infer<typeof UpdateRecruitSmsRequestSchema>;
 export type SendTestSmsRequest = z.infer<typeof SendTestSmsRequestSchema>;
 export type DuplicationCheckResponse = z.infer<typeof DuplicationCheckResponseSchema>;
+export type GetFormResponse = z.infer<typeof GetFormResponseSchema>;
 export type GetFormsResponse = z.infer<typeof GetFormsResponseSchema>;
 export type GetRecruitResponse = z.infer<typeof GetRecruitResponseSchema>;
 export type GetRecruitsResponse = z.infer<typeof GetRecruitsResponseSchema>;
