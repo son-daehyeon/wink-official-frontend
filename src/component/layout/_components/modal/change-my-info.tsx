@@ -156,7 +156,7 @@ export default function ChangeMyInfoModal({ open, setOpen }: ChangeMyInfoModalPr
                       'avatar',
                       (
                         await uploadS3(e.target.files!, () =>
-                          Api.Domain.Program.Upload.uploadImage(),
+                          Api.Domain.User.uploadMyAvatar(),
                         )
                       )[0],
                     ),

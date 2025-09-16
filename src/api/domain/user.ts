@@ -5,6 +5,7 @@ import {
   UserResponse,
   UsersResponse,
 } from '@/api/type/domain/user';
+import { UploadImageResponse } from '@/api/type/domain/program/upload';
 
 export default class User {
   constructor(private readonly request: WinkRequest) {}
@@ -15,6 +16,10 @@ export default class User {
 
   public async updateMyInfo(data: UpdateMyInfoRequest): Promise<UserResponse> {
     return this.request.put('/user/info', data);
+  }
+
+  public async uploadMyAvatar(): Promise<UploadImageResponse> {
+    return this.request.post('/user/avatar')
   }
 
   public async deleteMyAvatar(): Promise<UserResponse> {
