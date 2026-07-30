@@ -61,7 +61,7 @@ export default async function AdminLayout({ children }: AdminLayoutProps) {
           ))}
         </SidebarContent>
       </Sidebar>
-      <main className="flex flex-col w-full p-6 space-y-6">{children}</main>
+      <main className="flex min-w-0 flex-1 flex-col space-y-6 p-6">{children}</main>
     </SidebarProvider>
   );
 }

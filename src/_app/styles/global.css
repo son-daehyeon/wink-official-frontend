@@ -3,6 +3,16 @@
 
 @config "../../../tailwind.config.js";
 
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
 :root {
   --chart-1: 12 76% 61%;
   --chart-2: 173 58% 39%;
