@@ -57,26 +57,31 @@ headers.
 
 ## Architecture
 
-The source tree follows Feature-Sliced Design while keeping the framework-owned
-Next.js App Router directory:
+The source tree uses a practical Feature-Sliced Design boundary around the
+framework-owned Next.js App Router:
 
 ```text
 src/
-├── app/       # Next.js route files only; thin re-exports and route handlers
-├── _app/      # providers, global styles, root composition, API route adapters
-├── _pages/    # route-level server components and interactive page composition
+├── app/       # routes, layouts, providers, route handlers, and route-local code
+│   ├── (site)/        # pages with the global header and footer
+│   ├── (no-footer)/   # auth, admin, and recruit-form pages
+│   ├── api/           # server-only Next.js route handlers
+│   └── ui/            # application-shell composition
 ├── widgets/   # reusable, self-contained page sections and layouts
 ├── features/  # user actions, query options, mutations, and feature UI
 ├── entities/  # business models and entity-level state
 └── shared/    # API clients, generic utilities, generated contracts, and UI kit
 ```
 
-Dependencies flow downward only. Imports from another slice use its browser-safe
-root `index.ts` or explicit `server.ts` entry; files within a slice use relative
-imports. Entity-to-entity relations are exposed through a narrow `@x` entry.
-ESLint enforces the layer direction, bans the retired `component`, `contracts`,
-`hook`, `lib`, and `store` aliases, and prevents private deep imports across
-slice boundaries.
+Route groups in parentheses do not change public URLs; they only make layout
+responsibilities explicit. Route-specific code stays beside its route under
+plain `ui`, `model`, `config`, or `steps` directories.
+
+Dependencies flow downward: `app → widgets → features → entities → shared`.
+Imports from another slice use its browser-safe root `index.ts` or explicit
+`server.ts` entry, while files inside one slice use relative imports.
+Entity-to-entity relations use a narrow `@x` entry. ESLint enforces the layer
+direction and prevents private deep imports across slice boundaries.
 
 ## Verify a production build
 

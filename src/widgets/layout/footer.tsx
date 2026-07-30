@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import logo from '@/public/footer/logo.png';
 
-import { FooterLinks } from './_constant/footer-link';
+import { FooterLinks } from './config/footer-link';
 
 export default function Footer() {
   return (

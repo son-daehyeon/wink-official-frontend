@@ -110,14 +110,7 @@ export default tseslint.config(
     files: ['src/shared/**/*.{js,jsx,ts,tsx}'],
     rules: {
       'no-restricted-imports': restrictedImports({
-        group: [
-          '@/entities/**',
-          '@/features/**',
-          '@/widgets/**',
-          '@/_pages/**',
-          '@/_app/**',
-          '@/app/**',
-        ],
+        group: ['@/entities/**', '@/features/**', '@/widgets/**', '@/app/**'],
         message: 'shared can only depend on shared code and external packages.',
       }),
     },
@@ -127,7 +120,7 @@ export default tseslint.config(
     rules: {
       'no-restricted-imports': restrictedImports(
         {
-          group: ['@/features/**', '@/widgets/**', '@/_pages/**', '@/_app/**', '@/app/**'],
+          group: ['@/features/**', '@/widgets/**', '@/app/**'],
           message: 'entities can only depend on shared and lower-level entity contracts.',
         },
         {
@@ -146,7 +139,7 @@ export default tseslint.config(
     rules: {
       'no-restricted-imports': restrictedImports(
         {
-          group: ['@/widgets/**', '@/_pages/**', '@/_app/**', '@/app/**'],
+          group: ['@/widgets/**', '@/app/**'],
           message: 'features can only depend on entities and shared.',
         },
         {
@@ -166,7 +159,7 @@ export default tseslint.config(
     rules: {
       'no-restricted-imports': restrictedImports(
         {
-          group: ['@/_pages/**', '@/_app/**', '@/app/**'],
+          group: ['@/app/**'],
           message: 'widgets cannot depend on pages or application composition.',
         },
         {
@@ -182,47 +175,18 @@ export default tseslint.config(
     },
   },
   {
-    files: ['src/_pages/**/*.{js,jsx,ts,tsx}'],
-    rules: {
-      'no-restricted-imports': restrictedImports(
-        {
-          group: ['@/_app/**', '@/app/**'],
-          message: 'Pages cannot depend on the application composition or Next routing shell.',
-        },
-        {
-          group: ['@/_pages/**'],
-          message:
-            'Page slices must use relative internal imports and must not depend on peer pages.',
-        },
-        {
-          group: [...featurePrivateEntries, ...entityPrivateEntries, ...widgetPrivateEntries],
-          message: 'Import lower-layer slices through their public APIs.',
-        },
-      ),
-    },
-  },
-  {
-    files: ['src/_app/**/*.{js,jsx,ts,tsx}'],
+    files: ['src/app/**/*.{js,jsx,ts,tsx}'],
     rules: {
       'no-restricted-imports': restrictedImports(
         {
           group: ['@/app/**'],
-          message: 'Application composition must not depend on the Next routing shell.',
+          message: 'Use relative imports within the app route tree.',
         },
         {
           group: [...featurePrivateEntries, ...entityPrivateEntries, ...widgetPrivateEntries],
           message: 'Import lower-layer slices through their public APIs.',
         },
       ),
-    },
-  },
-  {
-    files: ['src/app/**/*.{js,jsx,ts,tsx}'],
-    rules: {
-      'no-restricted-imports': restrictedImports({
-        group: ['@/shared/**', '@/entities/**', '@/features/**', '@/widgets/**'],
-        message: 'Next route files are a framework shell; re-export from _app or _pages.',
-      }),
     },
   },
 );

@@ -8,11 +8,11 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import logo from '@/public/logo.png';
 
-import MobileMenu from './_components/mobile-menu';
-import ChangeMyInfoModal from './_components/modal/change-my-info';
-import ChangeMyPasswordModal from './_components/modal/change-my-password';
-import NavItem from './_components/nav-item';
-import { getMenuItems } from './_constant/header-item';
+import { getMenuItems } from './config/header-item';
+import MobileMenu from './ui/mobile-menu';
+import ChangeMyInfoModal from './ui/modal/change-my-info';
+import ChangeMyPasswordModal from './ui/modal/change-my-password';
+import NavItem from './ui/nav-item';
 
 import { useLogoutMutation } from '@/features/auth';
 import { useUserStore } from '@/features/user';
