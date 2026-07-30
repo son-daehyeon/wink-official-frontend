@@ -1,0 +1,212 @@
+import { useCallback, useEffect } from 'react';
+
+import Image from 'next/image';
+
+import { CreateHistoryRequest, CreateHistoryRequestSchema } from '@/entities/program';
+import { History } from '@/entities/program';
+import { getProgramUploadUrl, useUpdateHistoryMutation } from '@/features/program';
+import { formatDate, formatDateApi, toDate, uploadS3 } from '@/shared/lib/cn';
+import { useApiWithToast } from '@/shared/lib/hooks/use-api';
+import { Button } from '@/shared/ui/button';
+import { Calendar } from '@/shared/ui/calendar';
+import { DialogHeader } from '@/shared/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/shared/ui/dialog';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
+import { Input } from '@/shared/ui/input';
+import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/popover';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Calendar as CalendarIcon, Upload } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+
+interface UpdateHistoryModalProps {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  history?: History;
+  callback: (history: History) => void;
+}
+
+export default function UpdateHistoryModal({
+  open,
+  setOpen,
+  history,
+  callback,
+}: UpdateHistoryModalProps) {
+  const [isUploading, startUpload] = useApiWithToast();
+  const [isApi, startApi] = useApiWithToast();
+  const updateHistory = useUpdateHistoryMutation();
+
+  const form = useForm<CreateHistoryRequest>({
+    resolver: zodResolver(CreateHistoryRequestSchema),
+    mode: 'onChange',
+    defaultValues: {
+      title: '',
+      image: '',
+      date: '',
+    },
+  });
+
+  const onSubmit = useCallback(
+    (values: CreateHistoryRequest) => {
+      if (!history) return;
+
+      startApi(
+        async () => {
+          const { history: _history } = await updateHistory.mutateAsync({
+            id: history.id,
+            body: values,
+          });
+          callback(_history);
+        },
+        {
+          loading: '연혁을 수정하고 있습니다',
+          success: '연혁을 수정했습니다.',
+          finally: () => {
+            setOpen(false);
+            form.reset();
+          },
+        },
+      );
+    },
+    [callback, form, history, setOpen, startApi, updateHistory],
+  );
+
+  useEffect(() => {
+    if (!history) return;
+
+    form.reset({
+      title: history.title,
+      image: history.image,
+      date: formatDateApi(history.date),
+    });
+  }, [form, history]);
+
+  if (!history) return null;
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>연혁 수정</DialogTitle>
+          <DialogDescription>연혁을 수정합니다.</DialogDescription>
+        </DialogHeader>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-full space-y-4">
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>제목</FormLabel>
+                  <FormControl>
+                    <Input placeholder="제목을 입력해주세요." {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="date"
+              render={({ field }) => (
+                <FormItem className="flex flex-col">
+                  <FormLabel>날짜</FormLabel>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button variant="outline" className="font-normal">
+                          {field.value ? (
+                            formatDate(field.value)
+                          ) : (
+                            <span className="text-neutral-500">날짜를 선택해주세요.</span>
+                          )}
+                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={toDate(field.value)}
+                        onSelect={(date) => date && field.onChange(formatDateApi(date))}
+                        disabled={(date) => date > new Date()}
+                      />
+                    </PopoverContent>
+                  </Popover>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="image"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>사진</FormLabel>
+                  <FormControl>
+                    <>
+                      <div className="relative sm:min-w-[375px] h-[150px] cursor-pointer">
+                        {field.value ? (
+                          <>
+                            <Image
+                              src={field.value}
+                              alt={field.value}
+                              width={375}
+                              height={200}
+                              quality={100}
+                              unoptimized
+                              className="w-full h-full rounded-md object-cover"
+                            />
+                            <div
+                              className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity flex rounded-md items-center justify-center"
+                              onClick={() => document.getElementById('image-upload')?.click()}
+                            >
+                              <Upload className="w-8 h-8 text-white" />
+                            </div>
+                          </>
+                        ) : (
+                          <div
+                            className="flex items-center justify-center w-full h-full rounded-md border text-neutral-500 hover:text-black"
+                            onClick={() => document.getElementById('image-upload')?.click()}
+                          >
+                            <Upload className="w-8 h-8" />
+                          </div>
+                        )}
+                      </div>
+
+                      <input
+                        id="image-upload"
+                        type="file"
+                        className="hidden"
+                        accept="image/*"
+                        onChange={async (e) => {
+                          startUpload(
+                            async () =>
+                              field.onChange(
+                                (await uploadS3(e.target.files!, getProgramUploadUrl))[0],
+                              ),
+                            {
+                              loading: '이미지를 업로드하고 있습니다.',
+                              success: '이미지를 업로드했습니다.',
+                            },
+                          );
+                        }}
+                        disabled={isUploading}
+                      />
+                    </>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button variant="wink" type="submit" disabled={isUploading || isApi} className="w-full">
+              연혁 수정
+            </Button>
+          </form>
+        </Form>
+      </DialogContent>
+    </Dialog>
+  );
+}

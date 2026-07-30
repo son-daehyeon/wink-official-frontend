@@ -1,0 +1,10 @@
+.git
+.github
+.next
+.omx
+node_modules
+*.log
+*.tsbuildinfo
+.env
+.env.*
+!.env.template

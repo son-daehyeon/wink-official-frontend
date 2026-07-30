@@ -1,0 +1,15 @@
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+auditConfig:
+  # The advisory range has not picked up the 2.1.3 CJS backport yet.
+  # Both legacy minimatch consumers are overridden to that CVE-fixed release below.
+  ignoreGhsas:
+    - GHSA-mh99-v99m-4gvg
+minimumReleaseAge: 0
+overrides:
+  js-yaml: 4.3.0
+  'minimatch@3.1.5>brace-expansion': 2.1.3
+  'minimatch@9.0.9>brace-expansion': 2.1.3
+  postcss: 8.5.25
+  sharp: 0.35.3

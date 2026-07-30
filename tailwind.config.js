@@ -98,9 +98,9 @@ module.exports = {
       },
       fontFamily: {
         sans: ['pretendard', 'sans-serif'],
-        roboto: ['Roboto'],
+        roboto: ['var(--font-roboto)', 'Roboto', 'sans-serif'],
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [],
 };

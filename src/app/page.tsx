@@ -1,5 +1,2 @@
-import { redirect } from 'next/navigation';
-
-export default function RootPage() {
-  redirect('/about-us/wink');
-}
+export { default } from '@/_pages/page';
+export * from '@/_pages/page';

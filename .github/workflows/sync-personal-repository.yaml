@@ -25,13 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout personal repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
         with:
           repository: ${{ vars.REPOSITORY_OWNER }}/${{ vars.REPOSITORY_NAME }}
           ssh-key: ${{ secrets.REPOSITORY_DEPLOY_KEY }}
 
       - name: Setup SSH key
-        uses: webfactory/ssh-agent@v0.9.1
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ secrets.REPOSITORY_DEPLOY_KEY }}
 
