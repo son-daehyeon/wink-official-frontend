@@ -92,7 +92,7 @@ export default function UpdateApplicationModal({
                           </Avatar>
 
                           <div
-                            className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer rounded"
+                            className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer rounded"
                             onClick={() => document.getElementById('image-upload')?.click()}
                           >
                             <Upload color="white" size={32} />
