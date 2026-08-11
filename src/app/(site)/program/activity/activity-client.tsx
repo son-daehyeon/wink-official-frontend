@@ -52,8 +52,6 @@ export default function ProgramActivityClient() {
                   alt={activity.images[0]}
                   width={250}
                   height={250}
-                  quality={100}
-                  unoptimized
                   onClick={() => setSelectedId(activity.id)}
                   className={cn(
                     'w-[250px] sm:w-full sm:h-[250px] rounded-3xl object-cover cursor-pointer transition-all duration-300',
@@ -89,7 +87,7 @@ export default function ProgramActivityClient() {
               align: 'start',
             }}
             setApi={setCarouselApi}
-            className="max-w-[300px] sm:max-w-[400px] min-[930px]:max-w-[800px] min-[1300px]:max-w-[1200px]"
+            className="max-w-[300px] min-[640px]:max-w-[400px] min-[930px]:max-w-[800px] min-[1300px]:max-w-[1200px]"
           >
             <CarouselContent>
               {selected ? (
@@ -103,8 +101,6 @@ export default function ProgramActivityClient() {
                       alt={image}
                       width={500}
                       height={300}
-                      quality={100}
-                      unoptimized
                       className="w-[300px] h-[200px] sm:w-[400px] sm:h-[250px] rounded-xl object-cover"
                     />
                   </CarouselItem>
