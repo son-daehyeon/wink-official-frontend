@@ -96,7 +96,6 @@ export async function uploadS3(
         body: file,
         headers: {
           'Content-Type': file.type,
-          'x-amz-acl': 'public-read',
         },
       });
 
