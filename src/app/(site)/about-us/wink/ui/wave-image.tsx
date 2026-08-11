@@ -26,7 +26,6 @@ export default function WaveImage({ text, textStyle, direction, image }: WaveIma
         alt={image.src}
         width={288}
         height={512}
-        quality={100}
         placeholder="blur"
         priority={true}
         loading="eager"

@@ -43,7 +43,6 @@ export default function Activity() {
                 alt={image.src}
                 width={320}
                 height={180}
-                quality={100}
                 placeholder="blur"
                 priority={true}
                 loading="eager"

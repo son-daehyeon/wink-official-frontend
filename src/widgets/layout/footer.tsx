@@ -14,7 +14,6 @@ export default function Footer() {
           alt={logo.src}
           width={100}
           height={80}
-          quality={100}
           className="w-[32px] h-[12px] sm:w-[48px] sm:h-[18px]"
         />
         <p className="text-neutral-500 font-medium text-sm sm:text-base">WINK</p>

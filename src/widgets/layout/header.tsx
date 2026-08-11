@@ -54,7 +54,6 @@ export default function Header() {
             alt={logo.src}
             width={200}
             height={80}
-            quality={100}
             priority
             className="w-[48px] h-[19.5px] sm:w-[64px] sm:h-[26px]"
           />

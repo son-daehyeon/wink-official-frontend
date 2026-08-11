@@ -53,7 +53,7 @@ export default function ApplicationPageClient() {
                   alt={application.name}
                   width={208}
                   height={208}
-                  quality={100}
+                  // 사용자가 임의 URL을 등록하므로 remotePatterns 허용 목록을 적용할 수 없음
                   unoptimized
                   className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
                 />

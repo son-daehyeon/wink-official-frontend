@@ -16,7 +16,6 @@ export default function WeAreWink({ image }: WeAreWinkProps) {
         alt={image.src}
         width={640}
         height={360}
-        quality={100}
         placeholder="blur"
         priority={true}
         loading="eager"

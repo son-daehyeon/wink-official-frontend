@@ -6,6 +6,16 @@
 const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.s3.ap-northeast-2.amazonaws.com',
+      },
+    ],
+    // S3 키가 UUID라 원본이 바뀌지 않으므로 길게 캐싱 (31일)
+    minimumCacheTTL: 2678400,
+  },
   async headers() {
     const securityHeaders = [
       {

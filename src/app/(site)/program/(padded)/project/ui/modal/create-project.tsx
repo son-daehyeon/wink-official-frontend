@@ -125,8 +125,6 @@ export default function CreateProjectModal({ open, setOpen, callback }: CreatePr
                               alt={field.value}
                               width={375}
                               height={200}
-                              quality={100}
-                              unoptimized
                               className="w-full h-full rounded-md object-cover"
                             />
                             <div

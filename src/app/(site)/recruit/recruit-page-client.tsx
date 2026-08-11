@@ -76,7 +76,6 @@ export default function RecruitPageClient() {
           alt="background"
           width={1920}
           height={1080}
-          quality={100}
           placeholder="blur"
           className="w-full h-full object-cover"
         />

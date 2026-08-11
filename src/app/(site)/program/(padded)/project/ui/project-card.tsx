@@ -32,8 +32,6 @@ export default function ProjectCard({
         alt={project.title}
         width={320}
         height={130}
-        quality={100}
-        unoptimized
         className="h-[110px] sm:h-[130px] rounded-t-3xl object-cover"
       />
 

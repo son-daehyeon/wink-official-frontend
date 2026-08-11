@@ -58,8 +58,6 @@ export default function Carousel({ loading, projects }: CarouselProps) {
                     alt={title}
                     width={320}
                     height={130}
-                    quality={100}
-                    unoptimized
                     className={cn(
                       'absolute w-[320px] h-[130px] cursor-pointer rounded-3xl object-cover',
                       now ? 'shadow-lg' : 'grayscale brightness-75 blur-[2px]',

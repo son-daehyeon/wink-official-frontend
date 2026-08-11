@@ -29,7 +29,7 @@ export default function StudyCard({ index, category, title, author, content, ima
             alt={title}
             width={200}
             height={125}
-            quality={100}
+            // 블로그 스크랩 썸네일이라 호스트가 제각각이므로 remotePatterns 허용 목록을 적용할 수 없음
             unoptimized
             className="w-full h-[125px] sm:h-[150px] object-cover rounded-tl-xl rounded-tr-xl sm:rounded-tl-none sm:rounded-br-xl"
           />
